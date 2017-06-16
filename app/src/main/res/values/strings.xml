@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Assistente Financeiro</string>
+    <string name="menu_lancamento_novo">Novo</string>
+    <string name="menu_main_lancamentos">Lancamentos</string>
+    <string name="activityCadastro_btn_lancar">Lançar</string>
+    <string name="activityCadastro_hint_valor">Valor</string>
+    <string name="activityCadastro_hint_data">Date</string>
+    <string name="activityCadastro_hint_descricao">Descrição</string>
+
+    <string-array name="lancamentos_tipos">
+        <item>Evento</item>
+        <item>Despesa</item>
+        <item>Investimento</item>
+    </string-array>
+
+</resources>
