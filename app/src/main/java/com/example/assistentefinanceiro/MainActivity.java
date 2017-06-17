@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        int despesas = db.despesas();
-        int investimentos = db.investimentos();
-        int receitas = investimentos - despesas;
+        float despesas = db.despesas();
+        float investimentos = db.investimentos();
+        float receitas = investimentos - despesas;
 
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
         numberFormat.setMaximumFractionDigits(2);

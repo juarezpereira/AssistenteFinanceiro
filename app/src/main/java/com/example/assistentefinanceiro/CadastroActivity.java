@@ -22,7 +22,6 @@ import android.widget.Toast;
 import com.example.assistentefinanceiro.model.Lancamento;
 import com.example.assistentefinanceiro.utils.DataBase;
 
-import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -87,9 +86,7 @@ public class CadastroActivity extends AppCompatActivity implements
         if (getIntent().getParcelableExtra(LancamentosActivity.LANCAMENTO) != null){
             lancamento = getIntent().getParcelableExtra(LancamentosActivity.LANCAMENTO);
 
-            NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
-
-            edtValor.setText(numberFormat.format(lancamento.getValor()));
+            edtValor.setText(String.valueOf(lancamento.getValor()));
             edtDescricao.setText(lancamento.getDescricao());
             edtData.setText(dateFormat.format(lancamento.getDate()));
 
@@ -130,17 +127,10 @@ public class CadastroActivity extends AppCompatActivity implements
         }
 
         if (validaCampo(edtDescricao) && validaCampo(edtData) && validaCampo(edtValor)){
-            NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
-            Number valor;
-            try {
-                valor = numberFormat.parse(edtValor.getText().toString());
-            } catch (ParseException e) {
-                valor = 0;
-            }
 
             if (lancamento != null){
                 lancamento.setTipo(tipo);
-                lancamento.setValor(valor.doubleValue());
+                lancamento.setValor(Float.valueOf(edtValor.getText().toString().trim()));
                 lancamento.setDescricao(edtDescricao.getText().toString().trim());
 
                 try {
@@ -169,7 +159,7 @@ public class CadastroActivity extends AppCompatActivity implements
             }else{
                 lancamento = new Lancamento();
                 lancamento.setTipo(tipo);
-                lancamento.setValor(Integer.valueOf(edtValor.getText().toString().trim()));
+                lancamento.setValor(Float.valueOf(edtValor.getText().toString().trim()));
                 lancamento.setDescricao(edtDescricao.getText().toString().trim());
 
                 try {

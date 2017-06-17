@@ -16,7 +16,6 @@ public class BDCore extends SQLiteOpenHelper {
     public static final String COLUM_DESC = "descricao";
     public static final String COLUM_VALOR = "valor";
 
-
     public BDCore(Context context) {
         super(context, NAME_BD, null, VERSION_BD);
     }
@@ -28,7 +27,7 @@ public class BDCore extends SQLiteOpenHelper {
                 COLUM_DATA  + " DATE," +
                 COLUM_DESC  + " VARCHAR," +
                 COLUM_TIPO  + " VARCHAR," +
-                COLUM_VALOR + " INTEGER);");
+                COLUM_VALOR + " FLOAT);");
     }
 
     @Override

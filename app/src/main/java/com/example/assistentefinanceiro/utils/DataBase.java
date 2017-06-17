@@ -73,14 +73,14 @@ public class DataBase {
         return lancamentos;
     }
 
-    public int despesas(){
-        int despesa;
+    public float despesas(){
+        float despesa;
 
         String query = "SELECT SUM(valor) FROM lancamentos WHERE tipo = ?;";
         Cursor cursor = db.rawQuery(query, new String[]{"Despesa"});
 
         if (cursor.moveToFirst()){
-            despesa = cursor.getInt(0);
+            despesa = cursor.getFloat(0);
         }else{
             despesa = 0;
         }
@@ -88,14 +88,14 @@ public class DataBase {
         return despesa;
     }
 
-    public int investimentos(){
-        int investimento;
+    public float investimentos(){
+        float investimento;
 
         String query = "SELECT SUM(valor) FROM lancamentos WHERE tipo = ?;";
         Cursor cursor = db.rawQuery(query, new String[]{"Investimento"});
 
         if (cursor.moveToFirst()){
-            investimento = cursor.getInt(0);
+            investimento = cursor.getFloat(0);
         }else{
             investimento = 0;
         }
